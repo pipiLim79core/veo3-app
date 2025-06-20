@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Veo 3 Prompt Generator Final</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1c1f2f;
+  color: #d9d9ff;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+h1 { font-size: 2.5rem; color: #8080ff; text-align: center; }
+h2 { font-size: 1.5rem; font-weight: normal; color: #a0a0ff; text-align: center; }
+.description { font-size: 1rem; color: #d9d9ff; text-align: center; margin-bottom: 20px; }
+label { font-weight: bold; margin: 10px 0 5px 0; display: block; }
+select, input, button {
+  padding: 8px; font-size: 16px; border-radius:5px;
+  border:1px solid #555; background:#2a2a3a; color:#f0f0ff;
+  width:100%; margin-bottom:15px;
+}
+#output {
+  padding:10px;
+  background:#2a2a3a;
+  border-radius:5px;
+  white-space: pre-wrap;
+  margin-bottom:10px;
+}
+</style>
+</head>
+<body>
+<h1>Veo 3 Prompt Generator</h1>
+<h2>by Piaethernest</h2>
+<p class="description">Buat prompt yang terstruktur dan detail untuk Veo 3.</p>
+
+<form id="promptForm">
+<label>Subjek:</label><input id="subjek" placeholder="Contoh: Seekor kucing lucu">
+<label>Aksi:</label><input id="aksi" placeholder="Contoh: Berlari di padang rumput">
+<label>Ekspresi:</label><input id="ekspresi" placeholder="Contoh: Gembira, sedih, tenang">
+<label>Tempat:</label><input id="tempat" placeholder="Contoh: Hutan lebat">
+<label>Waktu:</label>
+<select id="waktu">
+<option>Pagi</option><option>Siang</option><option>Sore</option><option>Senja</option><option>Fajar</option><option>Malam</option>
+</select>
+<label>Gerakan Kamera:</label>
+<select id="kamera">
+<option>Pan (Geser Horizontal)</option><option>Tilt (Miring Vertikal)</option><option>Dolly (Maju/Mundur)</option><option>Zoom In/Out</option><option>Tracking Shot</option><option>Crane Shot</option><option>Handheld</option><option>Static</option><option>Orbit</option><option>Arc</option><option>Spiral</option><option>Push In</option><option>Pull Out</option><option>Roll</option><option>3D Rotation</option><option>POV</option><option>Fly Through</option><option>Time-lapse</option><option>Slow Motion</option><option>Fast Motion</option><option>Reverse Zoom</option><option>Gimbal</option>
+</select>
+<label>Pencahayaan:</label>
+<select id="pencahayaan">
+<option>Alami</option><option>Studio</option><option>Cahaya Lembut</option><option>Cahaya Keras</option><option>Siluet</option><option>Neon</option><option>Gelap & Suram</option><option>Terang & Ceria</option>
+</select>
+<label>Gaya Video:</label>
+<select id="gaya">
+<option>Sinematik</option><option>Dokumenter</option><option>Animasi 3D</option><option>Animasi 2D</option><option>Gaya Seni</option><option>Vintage</option><option>Fiksi Ilmiah</option><option>Fantasi</option><option>Horor</option><option>Komedi</option><option>Drama</option><option>Realistis</option><option>Abstrak</option><option>Estetika Minimalis</option>
+</select>
+<label>Suasana Video:</label>
+<select id="suasana">
+<option>Menenangkan</option><option>Energetik</option><option>Misterius</option><option>Menakutkan</option><option>Menyenangkan</option><option>Sedih</option><option>Tegang</option><option>Heroik</option><option>Romantis</option><option>Epik</option><option>Suram</option><option>Inspiratif</option>
+</select>
+<label>Suara / Musik:</label><input id="suara" placeholder="Contoh: Melodi piano, suara hujan">
+<label>Kalimat yang Diucapkan:</label><input id="ucapan" placeholder="Contoh: 'Selamat datang'">
+<label>Detail Tambahan:</label><input id="detail" placeholder="Contoh: 8K sinematik, efek partikel, dll">
+
+<button type="button" id="buatPrompt">Buat Prompt</button>
+</form>
+
+<div id="output"></div>
+
+<script>
+function buatPrompt() {
+const s = id => document.getElementById(id).value.trim();
+const prompt = `Piaethernest: ${s(\"subjek\")} ${s(\"aksi\")}, ekspresi ${s(\"ekspresi\")}, tempat ${s(\"tempat\")}, waktu ${s(\"waktu\")}. Gerakan kamera: ${s(\"kamera\")}, pencahayaan: ${s(\"pencahayaan\")}, gaya video: ${s(\"gaya\")}, suasana video: ${s(\"suasana\")}. Suara / Musik: ${s(\"suara\")}. Kalimat diucapkan: \"${s(\"ucapan\")}\". Detail tambahan: ${s(\"detail\")}.`;
+document.getElementById(\"output\").innerText = prompt;
+}
+document.getElementById(\"buatPrompt\").addEventListener(\"click\", buatPrompt);
+</script>
+</body>
+</html>
